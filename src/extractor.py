@@ -14,7 +14,7 @@ async def anilist_query(query: str, variables: dict = None):
         res = await client.post(ANILIST_URL, json=body)
         if res.status_code != 200:
                         raise HTTPException(status_code=500, detail=f"anilist query failed: status={res.status_code} body={res.text[:500]}")
-                    return res.json().get("data", {})
+        return res.json().get("data", {})
 # fetch raw decrypted eps from miruro using their secret pipe
 async def fetch_raw_episodes(anilist_id: int) -> dict:
     payload = {
